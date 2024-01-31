@@ -2,7 +2,7 @@
 
 describe('filtering',()=>{
     beforeEach(()=>{
-        cy.visit('https://todomvc-app-for-testing.surge.sh/')
+        cy.visit('/')
    
     cy.get('.new-todo').type('clean room{enter}')
     cy.get('.new-todo').type('Learn Javescript{enter}')

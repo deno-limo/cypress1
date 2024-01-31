@@ -1,14 +1,19 @@
 {
-  "name": "jumia",
-  "version": "1.0.0",
-  "description": "",
-  "main": "index.js",
+  "name": "stmechanic",
+  "version": "0.1.0",
+  "private": true,
+  "homepage": "https://stmechanic.com",
+  "author": "Saint Mechanic Limited",
+  "description": "Saint Mechanic Mobility Solution",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "cypress:open": "cypress open",
+    "cypress:run": "cypress run --browser chrome"
   },
-  "author": "",
-  "license": "ISC",
-  "dependencies": {
-    "cypress": "^13.3.0"
+  "devDependencies": {
+    "cypress": "^13.6.2",
+    "@types/jest": "^29.5.11",
+    "@typescript-eslint/parser": "^6.18.1",
+    "eslint": "^8.56.0",
+    "prettier": "^3.2.4"
   }
 }

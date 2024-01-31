@@ -1,21 +1,48 @@
-name: Cypress Tests
-
-on: push
+name: Node.js CI
+on:
+  push:
+    branches: [ "main" ]
+  pull_request:
+    branches: [ "main" ]
 
 jobs:
-  cypress-run:
+  build:
     runs-on: ubuntu-latest
-    steps:
-      - name: Checkout
-        uses: actions/checkout@v2
-      # Install NPM dependencies, cache them correctly
-      # and run all Cypress tests
-      - name: Cypress run
-        uses: cypress-io/github-action@v2
-        with:
-          build: npm run build
-          start: npm start
-        env:
-          CYPRESS_RECORD_KEY: ff4a7c6b-c92b-45b3-a9d8-789458d9d958
-          GITHUB_TOKEN:  ff4a7c6b-c92b-45b3-a9d8-789458d9d958  
 
+    strategy:
+      matrix:
+        node-version: [18.14.1]
+
+    steps:
+      - name: Checkout Repository
+        uses: actions/checkout@v3
+
+      - name: Use Node.js ${{ matrix.node-version }}
+        uses: actions/setup-node@v3
+        with:
+          node-version: ${{ matrix.node-version }}
+          cache: 'yarn'  # Cache Yarn packages
+
+      - name: Cache Yarn packages
+        uses: actions/cache@v2
+        with:
+          path: |
+            ~/.cache
+            ~/.yarn
+          key: ${{ runner.os }}-yarn-${{ hashFiles('**/yarn.lock') }}
+          restore-keys: |
+            ${{ runner.os }}-yarn-
+      - name: Install Dependencies
+        run: yarn install
+
+      - name: Build
+        run: yarn run build
+
+      - name: Cypress run
+        uses: cypress-io/github-action@v6
+        env:
+          CLICKUP_API_TOKEN: pk_7305298_EY5FCEJUVPJI92AI03EN3XSC3PAS3H5A
+          GITHUB_TOKEN: ${{secrets.GITHUB_TOKEN}}
+        with:
+          start: yarn run cypress:run
+         
