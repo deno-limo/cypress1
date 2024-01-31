@@ -1,39 +1,25 @@
 {
-  "name": "stmechanic",
-  "version": "0.1.0",
-  "private": true,
-  "homepage": "https://stmechanic.com",
-  "author": "Saint Mechanic Limited",
-  "description": "Saint Mechanic Mobility Solution",
-  "main": "main/main.js",
+  "name": "rollup-todomvc",
+  "author": "Cypress DX Team",
+  "license": "MIT",
   "scripts": {
-    "dev": "next dev",
-    "build": "next build",
-    "start": "next start -p $PORT",
-    "dev-start": "next start",
-    "lint": "next lint",
-    "export": "next export",
-    "static": "next build",
-    "dev:desktop": "electron .",
-    "build:desktop": "next build && electron-builder",
-    "publish:desktop": "next build && electron-builder --win --publish always",
-    "build:ios": "next build && next export && npx cap sync && npx cap run ios",
-    "build:android": "next build && next export && npx cap sync && npx cap run android",
-    "build:sync": "next build && npx cap sync",
+    "build": "rollup -c",
+    "start": "http-server",
+    "test": "cypress run",
     "cypress:open": "cypress open",
-    "cypress:run": "cypress run --browser chrome"
+    "cypress:run": "cypress run",
+    "cypress:record": "cypress run --record --key"
+  },
+  "dependencies": {
+    "todomvc-app-css": "2.3.0",
+    "todomvc-common": "1.0.5"
   },
   "devDependencies": {
-    "@capacitor/cli": "^5.6.0",
-    "@types/autosuggest-highlight": "^3.2.3",
-    "@types/jest": "^29.5.11",
-    "@types/mapbox-gl": "^2.7.19",
-    "@types/nprogress": "^0.2.3",
-    "@typescript-eslint/parser": "^6.18.1",
-    "cypress": "^13.6.2",
-    "electron": "29.0.0-alpha.1",
-    "electron-builder": "^24.9.1",
-    "eslint": "^8.56.0",
-    "prettier": "^3.2.4"
+    "@babel/core": "^7.13.14",
+    "@babel/preset-env": "^7.13.12",
+    "@rollup/plugin-babel": "5.3.0",
+    "cypress": "^7.0.0",
+    "http-server": "^0.12.3",
+    "rollup": "2.44.0"
   }
 }
