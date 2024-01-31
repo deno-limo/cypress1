@@ -42,7 +42,7 @@ jobs:
         uses: cypress-io/github-action@v6
         env:
           CLICKUP_API_TOKEN: pk_7305298_EY5FCEJUVPJI92AI03EN3XSC3PAS3H5A
-          GITHUB_TOKEN: ${{secrets.GITHUB_TOKEN}}
         with:
           start: yarn run cypress:run
-         
+        
+          
