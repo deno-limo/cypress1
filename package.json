@@ -6,6 +6,7 @@
   "author": "Saint Mechanic Limited",
   "description": "Saint Mechanic Mobility Solution",
   "scripts": {
+    "build": "next build",
     "cypress:open": "cypress open",
     "cypress:run": "cypress run --browser chrome"
   },
