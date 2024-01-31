@@ -12,7 +12,7 @@ describe('filtering',()=>{
     cy.get('.todo-list li:nth-child(2) .toggle').click()
     
     })
-    
+    git 
     it('should filter"Active"Todos',()=>{
         cy.contains('Active').click()
 
