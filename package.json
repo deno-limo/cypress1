@@ -3,7 +3,7 @@
   "author": "Cypress DX Team",
   "license": "MIT",
   "scripts": {
-    "build": "rollup -c",
+    "build": "next build",
     "start": "http-server",
     "test": "cypress run",
     "cypress:open": "cypress open",
