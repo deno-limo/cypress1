@@ -8,7 +8,7 @@ describe('filtering',()=>{
     cy.get('.new-todo').type('Learn Javescript{enter}')
     cy.get('.new-todo').type('Use cypress{enter}')
     cy.get('.new-todo').type('cook{enter}')
-    cy.get('.new-todo').type('Pray{enter}')
+    cy.get('.new-todo').type('Praay{enter}')
 
     cy.get('.todo-list li:nth-child(2) .toggle').click()
     
