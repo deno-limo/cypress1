@@ -15,4 +15,7 @@ jobs:
         with:
           build: npm run build
           start: npm start
+        env:
+          CYPRESS_RECORD_KEY: ff4a7c6b-c92b-45b3-a9d8-789458d9d958
+          GITHUB_TOKEN:  ff4a7c6b-c92b-45b3-a9d8-789458d9d958  
 
