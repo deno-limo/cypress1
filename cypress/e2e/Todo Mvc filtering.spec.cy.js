@@ -8,22 +8,23 @@ describe('filtering',()=>{
     cy.get('.new-todo').type('Learn Javescript{enter}')
     cy.get('.new-todo').type('Use cypress{enter}')
     cy.get('.new-todo').type('cook{enter}')
+    cy.get('.new-todo').type('Pray{enter}')
 
     cy.get('.todo-list li:nth-child(2) .toggle').click()
     
     })
-    git 
+
     it('should filter"Active"Todos',()=>{
         cy.contains('Active').click()
 
-        cy.get('.todo-list li').should('have.length',3)
+        cy.get('.todo-list li').should('have.length',4)
 
 
     })
     it('should filter"All"Todos',()=>{
         cy.contains('All').click()
 
-        cy.get('.todo-list li').should('have.length',4)
+        cy.get('.todo-list li').should('have.length',5)
 
 
     })
